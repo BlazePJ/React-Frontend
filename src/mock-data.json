@@ -1,0 +1,17 @@
+[
+    {   "id":1,
+        "name":"Prajeeth",
+        "age":21,
+        "email": "blazeprajeeth@gmail.com",
+        "phoneNumber":9047634447
+    },
+    {   "id":2,
+        "name":"Blaze",
+        "age":22,
+        "email": "lordoftherings@gmail.com",
+        "phoneNumber":9655465188
+        
+
+    }
+
+]
