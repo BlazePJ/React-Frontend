@@ -7,14 +7,14 @@ import {
   Grid,
   Select,
   MenuItem,
+  useTheme,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import InsightsIcon from '@mui/icons-material/Insights';
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchStates,
 } from "../redux/slice/statesApiSlice";
-import Table1 from "./Table1";
+
 import {
   setFormValue,
   resetForm,
@@ -24,9 +24,13 @@ import {
   fetchTemperatureData,
   resetTemperature,
 } from "../redux/slice/weatherApiSlice";
-import { Link } from "react-router-dom";
+import { tokens } from "../theme"
+
 
 function Form() {
+
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const dispatch = useDispatch();
   const statesData = useSelector((state) => state.statesApi.data);
   const statesLoading = useSelector((state) => state.statesApi.isLoading);
@@ -75,7 +79,7 @@ function Form() {
   }
 
   return (
-    <Box sx={{ backgroundColor: "lightgoldenrodyellow", padding: "20px" }}>
+    <Box sx={{ backgroundColor: "colors.primary[500] !important", padding: "20px" }}>
       <Grid container justifyContent="center" alignItems="center" spacing={2}>
       <Grid item xs={12} md={6}>
         <form className="form1" >
@@ -182,7 +186,7 @@ function Form() {
                 color="secondary"
                 onClick={handleAddFormSubmit}
                 startIcon={<AddIcon />}
-                sx={{ backgroundColor: "orange" }}
+                sx={{ backgroundColor: colors.greenAccent[500] }}
                 fullWidth
               >
                 Add
@@ -192,11 +196,7 @@ function Form() {
         </form>
       </Grid>
     </Grid>
-    <Grid container justifyContent="center" alignItems="center" spacing={2}>
-      <Grid item xs={12}>
-        <Table1 />
-      </Grid>
-    </Grid>
+   
      </Box>
   );
 }

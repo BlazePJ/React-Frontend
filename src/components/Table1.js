@@ -7,10 +7,14 @@ import {
   TableHead,
   TableCell,
   TableRow,
+  useTheme
 } from "@mui/material";
 import { useSelector } from 'react-redux';
+import { tokens } from "../theme"
 
 function Table1() {
+  const theme=useTheme()
+  const colors = tokens(theme.palette.mode)
 const contacts = useSelector((state) => state.table.contacts);
 
   console.log("contacts", contacts);
@@ -19,7 +23,7 @@ const contacts = useSelector((state) => state.table.contacts);
       <TableContainer
         component={Paper}
         sx={{
-          backgroundColor: "lightyellow",
+          backgroundColor: "colors.primary[500] !important"
         }}
       >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

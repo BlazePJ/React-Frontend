@@ -30,7 +30,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 };
 
 function SideBar() {
-  const {collapseSidebar,toggleSidebar,collapsed,toggled}=useProSidebar()
+  const {collapseSidebar,collapsed}=useProSidebar()
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   // const [isCollapsed, setIsCollapsed] = useState(false);
@@ -59,9 +59,9 @@ function SideBar() {
         padding: "5px 35px 5px 20px !important",
         '&:hover': {
           backgroundColor: 'transparent',
-          color: 'green',
+          color: colors.blueAccent[500],
           [`& .${menuClasses.label}, & .${menuClasses.icon}`]: {
-            color: 'green',
+            color: colors.blueAccent[500] ,
           },
         },
       }),
@@ -94,7 +94,7 @@ function SideBar() {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                  ADMINS
                 </Typography>
                 <IconButton onClick={() => collapseSidebar(!collapsed)}>
                   <MenuOutlinedIcon />
@@ -146,7 +146,7 @@ function SideBar() {
             >
               Data
             </Typography>
-         
+            <Link to="/contact-information"  style={{ textDecoration: 'none', color: 'inherit' }}>
             <Item
               title="Contacts Information"
               to="/contacts"
@@ -154,6 +154,7 @@ function SideBar() {
               selected={selected}
               setSelected={setSelected}
             />
+            </Link>
        
 
             <Typography
