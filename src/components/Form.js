@@ -9,6 +9,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import InsightsIcon from '@mui/icons-material/Insights';
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchStates,
@@ -23,6 +24,7 @@ import {
   fetchTemperatureData,
   resetTemperature,
 } from "../redux/slice/weatherApiSlice";
+import { Link } from "react-router-dom";
 
 function Form() {
   const dispatch = useDispatch();
@@ -76,7 +78,7 @@ function Form() {
     <Box sx={{ backgroundColor: "lightgoldenrodyellow", padding: "20px" }}>
       <Grid container justifyContent="center" alignItems="center" spacing={2}>
       <Grid item xs={12} md={6}>
-        <form className="form1" onSubmit={handleAddFormSubmit}>
+        <form className="form1" >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant="body1" component="label">
@@ -178,6 +180,7 @@ function Form() {
                 variant="contained"
                 type="submit"
                 color="secondary"
+                onClick={handleAddFormSubmit}
                 startIcon={<AddIcon />}
                 sx={{ backgroundColor: "orange" }}
                 fullWidth
@@ -194,7 +197,7 @@ function Form() {
         <Table1 />
       </Grid>
     </Grid>
-  </Box>
+     </Box>
   );
 }
 

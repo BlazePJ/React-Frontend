@@ -1,16 +1,38 @@
-import Form from './components/Form'
-import Header from './components/Header';
-import Table1 from './components/Table1';
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Topbar from "./scenes/global/TopBar";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import Dashboard from './scenes/dashboard/index'
+import SideBar from './scenes/global/SideBar'
+import { ProSidebarProvider } from "react-pro-sidebar";
+import FormPage from "./scenes/form/FormPage";
 
 function App() {
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
+
   return (
-    <div className="App">
-      <Header />
-      <Form />
-      {/* <Table1 /> */}
-     
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <ProSidebarProvider>
+        <div className="app">
+        <SideBar  />
+          <main className="content">
+            <Topbar />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path='/form' element={<FormPage />} />
+             
+            </Routes>
+          </main>
+        </div>
+        </ProSidebarProvider>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
+
 
 export default App;
