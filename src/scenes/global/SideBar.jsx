@@ -181,6 +181,8 @@ function SideBar() {
             >
               Charts
             </Typography>
+            <Link to="/chart"  style={{ textDecoration: 'none', color: 'inherit' }}>
+
             <Item
               title="Bar Chart"
               to="/bar"
@@ -188,6 +190,7 @@ function SideBar() {
               selected={selected}
               setSelected={setSelected}
             />
+            </Link>
             </Box>
         </Menu>
       </Sidebar>

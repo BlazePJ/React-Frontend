@@ -8,6 +8,7 @@ import SideBar from './scenes/global/SideBar'
 import { ProSidebarProvider } from "react-pro-sidebar";
 import FormPage from "./scenes/form/FormPage";
 import ContactInformation from "./scenes/contact/ContactInformation";
+import Chart from "./components/Chart";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -26,6 +27,8 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path='/form' element={<FormPage />} />
               <Route path='/contact-information' element={<ContactInformation />} />
+              <Route path='/chart' element={<Chart />} />
+
              
             </Routes>
           </main>
